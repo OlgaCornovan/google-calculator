@@ -1,4 +1,4 @@
-@debug
+
 
 Feature: Search Google Calculator
 

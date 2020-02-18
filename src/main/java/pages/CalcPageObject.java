@@ -88,4 +88,10 @@ public class CalcPageObject extends BasePage{
         String res = calcResult.getText();
         Assert.assertEquals(res, number);
     }
+
+    // AE methods
+    public void navigateToAeSite() {
+        driver.navigate().to("https://www.aandewatches.com");
+    }
+
 }
