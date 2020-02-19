@@ -32,6 +32,26 @@ public class CalcPageObject extends BasePage{
     @FindBy(xpath = "//*[@class='PaQdxb UpZIS']//*[@aria-label='clear entry']")
     public WebElement buttonCE;
 
+    // AE watches locators
+
+    @FindBy(xpath = "//a[text()= 'Log In']")
+    public WebElement loginBtn;
+
+    @FindBy(id = "email")
+    public WebElement fillInField;
+
+
+//    @FindBy(className = "amazonpay-button-inner-image")
+//    public WebElement loginAmazonBtn;
+//
+////    @FindBy (xpath = "h1.a-spacing-small")
+//    @FindBy (xpath = "//h1[@class='a-spacing-small']")
+//    public WebElement amazonText;
+
+
+
+//    [title='Log In']
+
     public CalcPageObject(WebDriver driver) throws Exception {
         super(driver);
         this.driver = driver;
@@ -94,4 +114,25 @@ public class CalcPageObject extends BasePage{
         driver.navigate().to("https://www.aandewatches.com");
     }
 
+    public void clickLoginBtn() {
+        loginBtn.click();
+    }
+
+    public void fillInInvalidEmail(String word) {
+        waitForElementToBeVisible(fillInField);
+        fillInField.sendKeys(word);
+    }
+
+
+
+
+
+//    public void clickLoginAmazonBtn() {
+//         loginAmazonBtn.click();
+//    }
+
+//    public void verifyText (String text){
+//        String expText = amazonText.getText();
+//        Assert.assertEquals(expText, text);
+//    }
 }
