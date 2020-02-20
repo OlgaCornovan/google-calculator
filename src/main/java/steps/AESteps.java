@@ -2,6 +2,7 @@ package steps;
 
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
 import pages.CalcPageObject;
 
 public class AESteps extends BaseSteps{
@@ -25,6 +26,22 @@ public class AESteps extends BaseSteps{
         calcPage.fillInInvalidEmail(word);
     }
 
+    @And("^I fill in with my valid password \"([^\"]*)\"$")
+    public void IFillInValidPassword (String word) {
+        calcPage.fillInValidPassword(word);
+    }
+
+    @Then("^I click on LogIn button2$")
+    public void iClickLogInButton2(){
+        calcPage.clickLogInButton2();
+    }
+
+    @Then("^I verify error message \"([^\"]*)\"$")
+    public void iVerifyErrorMessage (String text){
+        calcPage.verifyErrorMessage(text);
+    }
+
+
 
 
 
@@ -35,7 +52,7 @@ public class AESteps extends BaseSteps{
 //    }
 
 //    @Then("^I get verifytext \"([^\"]*)\"$")
-//    public void IVerifyText (String text) {
+//    public void IverifyText (String text) {
 //        calcPage.verifyText(text);
 //    }
 
