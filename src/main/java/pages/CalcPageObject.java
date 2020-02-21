@@ -40,6 +40,17 @@ public class CalcPageObject extends BasePage{
     @FindBy(id = "email")
     public WebElement fillInField;
 
+    @FindBy(id ="pass")
+    public WebElement fillInPassword;
+
+//    @FindBy(xpath = "//button[@id = 'send2']")
+    @FindBy(id = "send2")
+    public WebElement LogInButton;
+
+    @FindBy(xpath = "//*[@class='error-msg']")
+    public WebElement errormessage;
+
+
 
 //    @FindBy(className = "amazonpay-button-inner-image")
 //    public WebElement loginAmazonBtn;
@@ -123,8 +134,20 @@ public class CalcPageObject extends BasePage{
         fillInField.sendKeys(word);
     }
 
+    public void fillInValidPassword (String word) {
+        waitForElementToBeVisible(fillInPassword);
+        fillInPassword.sendKeys(word);
 
+    }
 
+    public void clickLogInButton2() {
+       LogInButton.click();
+    }
+
+    public void verifyErrorMessage (String text){
+        String expText = errormessage.getText();
+        Assert.assertEquals(expText, text);
+    }
 
 
 //    public void clickLoginAmazonBtn() {
