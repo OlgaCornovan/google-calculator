@@ -22,13 +22,13 @@ public class AESteps extends BaseSteps{
     }
 
     @And ("^I fill in with my invalid email \"([^\"]*)\"$")
-    public void iFillInInvalidEmail (String word) {
-        calcPage.fillInInvalidEmail(word);
+    public void iFillInInvalidEmail (String email) {
+        calcPage.fillInInvalidEmail(email);
     }
 
     @And("^I fill in with my valid password \"([^\"]*)\"$")
-    public void IFillInValidPassword (String word) {
-        calcPage.fillInValidPassword(word);
+    public void IFillInValidPassword (String password) {
+        calcPage.fillInValidPassword(password);
     }
 
     @Then("^I click on LogIn button2$")
@@ -37,8 +37,8 @@ public class AESteps extends BaseSteps{
     }
 
     @Then("^I verify error message \"([^\"]*)\"$")
-    public void iVerifyErrorMessage (String text){
-        calcPage.verifyErrorMessage(text);
+    public void iVerifyErrorMessage (String message){
+        calcPage.verifyErrorMessage(message);
     }
 
 
