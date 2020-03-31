@@ -21,12 +21,12 @@ public class AESteps extends BaseSteps{
         calcPage.clickLoginBtn();
     }
 
-    @And ("^I fill in with my invalid email \"([^\"]*)\"$")
+    @And ("^I fill in with my email \"([^\"]*)\"$")
     public void iFillInInvalidEmail (String email) {
         calcPage.fillInInvalidEmail(email);
     }
 
-    @And("^I fill in with my valid password \"([^\"]*)\"$")
+    @And("^I fill in with my password \"([^\"]*)\"$")
     public void IFillInValidPassword (String password) {
         calcPage.fillInValidPassword(password);
     }
@@ -40,8 +40,50 @@ public class AESteps extends BaseSteps{
     public void iVerifyErrorMessage (String message){
         calcPage.verifyErrorMessage(message);
     }
+    //////////////////////////////////
+
+    @And("^I enter search window \"([^\"]*)\"$")
+    public void iEnterSearchWindow(String SKU) {
+        calcPage.EnterSearchWindow(SKU);
+    }
+
+    @And("^I click ae search button$")
+    public void iClickAeSearchButton(){
+        calcPage.clickAeSearchBtn();
+    }
+    @Then("^I verify the PR801text is displayed \"([^\"]*)\"$")
+    public void iVerifyPR801Text (String text){
+        calcPage.verifyItemIsDisplayed(text);
+    }
+
+    @Then("^I verify the \"([^\"]*)\" item is displayed$")
+    public void iVerifyTheItemIsDisplayed(String item) {
+        calcPage.verifyItemIsDisplayed(item);
+    }
+
+    @And("^I click on add to cart button$")
+    public void iClickOnAddToCartButton() {
+        calcPage.clickAddToCartBtn();
+    }
+
+    @And("^I click on go to shopping cart$")
+    public void iClickOnGoToShoppingCart() {
+        calcPage.clickGoToShoppingCart();
+    }
+
+    @Then("^I verify that I have one item in the cart$")
+    public void iVerifyThatIHaveOneItemInTheCart() {
+        calcPage.verifyThatIHaveOneItemInCart();
 
 
+    }
+
+
+//    @And("I Fill in with my valid email\"([^\"]*)\"$")
+//    public void IFillInValidEmail (String email) {
+//        calcPage.fillInInvalidEmail(email);
+//
+//    }
 
 
 
@@ -56,4 +98,4 @@ public class AESteps extends BaseSteps{
 //        calcPage.verifyText(text);
 //    }
 
-}
+ }

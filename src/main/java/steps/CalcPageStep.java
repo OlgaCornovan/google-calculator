@@ -49,5 +49,6 @@ public class CalcPageStep extends BaseSteps{
     @Then("^I see result \"([^\"]*)\"$")
     public void iSeeResult(String number) {
         calcPage.seeResult(number);
+
     }
 }
