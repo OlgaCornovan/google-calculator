@@ -74,8 +74,51 @@ public class AESteps extends BaseSteps{
     @Then("^I verify that I have one item in the cart$")
     public void iVerifyThatIHaveOneItemInTheCart() {
         calcPage.verifyThatIHaveOneItemInCart();
+    }
 
+    @And("^I click to My Account$")
+    public void iClickToMyAccount() {
+        calcPage.clickToMyAcc();
+    }
 
+    @And("^I click on Create An Account$")
+    public void iClickOnCreateAnAccount(){
+        calcPage.clickOnCreateAnAccount();
+    }
+
+    @And("^I fill in my First Name \"([^\"]*)\"$")
+    public void iFillInMyFirstName(String text){
+        calcPage.fillInMyFirstName(text);
+    }
+
+    @And("^I fill in my Last Name \"([^\"]*)\"$")
+    public void iFillInMyLastName(String text){
+    calcPage.fillInMyLastName(text);
+    }
+
+    @And("^I fill in email on create account page \"([^\"]*)\"$")
+    public void iFillInEmailOnCreateAccountPage(String email){
+    calcPage.fillInEmailOnCreateAccountPage(email);
+    }
+
+    @And("^I fill in Password with \"([^\"]*)\"$")
+    public void iFillInPasswordWith(String text){
+        calcPage.fillInPasswordWith(text);
+    }
+
+    @Then("^I click on Submit button$")
+    public void iClickOnSubmitButton(){
+    calcPage.clickOnSubmitBttn();
+    }
+
+//    @And("I verify the \"([^\"]*)\" error is displayed$")
+//    public void iVerifyTheErrorIsDisplayed(String error) {
+//        calcPage.verifyErrorIsDisplayed(error);
+//    }
+
+    @And("^I verify the \"([^\"]*)\" error is displayed on field \"([^\"]*)\"$")
+    public void iVerifyTheErrorIsDisplayedOnField(String error, String field) {
+        calcPage.verifyErrorIsDisplayed(error, field);
     }
 
 

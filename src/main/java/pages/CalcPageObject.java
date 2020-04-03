@@ -79,6 +79,32 @@ public class CalcPageObject extends BasePage {
     @FindBy(css = "span.top-cart-title")
     public WebElement itemInCart;
 
+    @FindBy(xpath = "//a[contains(text(),'My Account')]")
+    public WebElement myAcc;
+
+    @FindBy(xpath = "//span[text()='Create an Account']")
+    public WebElement createAcc;
+
+    @FindBy(css = "input#firstname")
+    public WebElement firstname;
+
+    @FindBy(css ="input#lastname")
+    public WebElement lastname;
+
+    @FindBy(css = "input[id^=email_a]" )
+    public WebElement idemail;
+
+    @FindBy(css = "input#password")
+    public WebElement inputpass;
+
+    @FindBy(xpath = "//span[text()='Submit']")
+    public WebElement bttnsubmit;
+
+    @FindBy(css = "div.validation-advice")
+    public WebElement validation;
+
+
+
     //a[contains(text(),"Rolex Day-Date President 80's Model 18038")]
 
 //    @FindBy(className = "amazonpay-button-inner-image")
@@ -219,7 +245,95 @@ public class CalcPageObject extends BasePage {
     public void verifyThatIHaveOneItemInCart() {
         itemInCart.isDisplayed();
     }
-}
+
+    public void clickToMyAcc() {
+        myAcc.click();
+    }
+
+    public void clickOnCreateAnAccount() {
+        createAcc.click();
+    }
+
+    public void fillInMyFirstName(String text) {
+        waitForElementToBeVisible(firstname);
+        firstname.isDisplayed();
+        firstname.sendKeys(text);
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+        public void fillInMyLastName (String text){
+            waitForElementToBeVisible(lastname);
+            lastname.isDisplayed();
+            lastname.sendKeys(text);
+            try {
+                Thread.sleep(2000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+        }
+
+        public void fillInEmailOnCreateAccountPage(String email) {
+            waitForElementToBeVisible(idemail);
+            idemail.isDisplayed();
+            idemail.sendKeys(email);
+            try {
+                Thread.sleep(2000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+    }
+
+        public void fillInPasswordWith (String text){
+            waitForElementToBeVisible(inputpass);
+            inputpass.isDisplayed();
+            inputpass.sendKeys(text);
+            try {
+                Thread.sleep(2000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+    }
+     public void clickOnSubmitBttn(){
+        waitForElementToBeVisible(bttnsubmit);
+         bttnsubmit.click();
+         driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+     }
+
+//    public void verifyErrorIsDisplayed(String error) {
+//        String expText = validation.getText();
+//        Assert.assertEquals(expText, error);
+//        try {
+//            Thread.sleep(2000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+//    }
+
+    public void verifyErrorIsDisplayed(String error, String field) {
+        String expText = validation.getText();
+//        driver.findElement(By.xpath("//*[@class='PaQdxb mF5fo']/*[@aria-label='" + button + "']")).click();
+        String fieldLocator = driver.findElement(By.id("advice-required-entry-" + field)).getText();
+
+        Assert.assertEquals(fieldLocator, error);
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+
+
+
+    // don't delete
+    }
+
 //    String expText = itemInCart.getText();
 ////        Assert.assertEquals();
 //    WebElement btnAddToCart = driver.findElement(By.cssSelector("div.item-inner"));
